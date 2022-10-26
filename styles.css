@@ -1,1 +1,10 @@
 /* fuck off */
+
+body {
+    display:flex;
+}
+
+meta {
+    width: 10px;
+    height: 10px;
+}
