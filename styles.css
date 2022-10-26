@@ -1,4 +1,8 @@
 /* fuck off */
+html {
+    background-color:white;
+    color: black;
+}
 
 body {
     display:flex;
