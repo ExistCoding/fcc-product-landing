@@ -1,4 +1,10 @@
 img, svg {
-    width: 100vw !important;
-    height: 50vh !important;
+        width: 100vw !important;
+        height: 50vh !important;
+        overflow:visible;
+}
+
+#problem {
+    width: auto !important;
+    height: auto !important;
 }
