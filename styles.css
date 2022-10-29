@@ -1,10 +1,5 @@
 img, svg {
-        width: 100vw !important;
-        height: 50vh !important;
+        width: 250px !important;
+        height: 250px !important;
         overflow:visible;
-}
-
-#problem {
-    width: 100vw !important;
-    height: 50vh !important;
 }
