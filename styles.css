@@ -1,5 +1,14 @@
 img, svg {
-        width: 250px !important;
-        height: 250px !important;
-        overflow:visible;
+        width: 250px;
+        height: 250px;
+        display: block;
+}
+
+video {
+        width: 50vw;
+        height: 50vh;
+}
+
+.svg-def {
+        display: none;
 }
