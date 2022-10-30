@@ -1,14 +1,102 @@
-img, svg {
-        width: 250px;
-        height: 250px;
-        display: block;
+/* normalizing css */
+
+*, *::before, *::after, * :not(head){
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	display:block;
+	white-space: nowrap;
 }
+
+
+/* global font definitions */
+html {
+        font-size: 62.5%;
+        background-color: hsl(0, 0%, 15%)
+}
+
+* {
+        font-family: "Bree Serif", serif;
+        color: linen;
+}
+
+h1, h2, h3 {
+        font-family: "Rubik", sans-serif;
+        color: darkred;
+}
+
+/* header */
+
+header {
+        height: 17vh;
+        display: grid;
+        grid-template-columns: calc(calc(100vw - 21vh) / 5) calc(calc(calc(100vw - 21vh) / 5) *4) 17vh;
+        place-items: center;
+        background-color: hsl(0, 0%, 25%);
+        position: fixed;
+        grid-column-gap: 2vh;
+}
+
+#header-img {
+        padding-left: 2vh;
+        height: 12vh;
+        width: 15vw;
+        justify-self: center;
+}
+
+h1 {
+        height: fit-content;
+        font-size: 2.3rem;
+}
+
+#nav-wrapper {
+        height: 17vh;
+        width: 17vh;
+}
+
+#nav-button {
+        width: 17vh;
+        height: 17vh;
+        border-radius: 3px;
+        background-color: hsl(0, 0%, 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+#menu-bars {
+        width: 10vh;
+        height: 10vh;
+        fill:darkred;
+}
+
+
+/* main section */
+
+main {
+        padding-top: 18vh;
+}
+
+
+
+
+
+
+
+.svg-def {
+        display: none;
+}
+
+/* Only temporary */
+
+img, svg {
+        width: 15vw;
+        height: 15vw;
+}
+
 
 video {
         width: 50vw;
         height: 50vh;
-}
-
-.svg-def {
-        display: none;
 }

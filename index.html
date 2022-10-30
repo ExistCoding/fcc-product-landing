@@ -4,21 +4,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Rubik:ital,wght@0,400;0,500;0,700;0,800;1,600&display=swap" rel="stylesheet"> 
     </head>
     <body>
         <header id="header">
              <!--after FCC-upload: change img to svg and src-links to Ressource Folder-->
-            <img id="header-img" src="https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/842aece5d1288afb665c5a1a5ef546ce18aabd17/Ressources/Anvil.svg">
-            <h2>Vulcanus Forge</h2>
-            <nav id="nav-bar">
-                <!--add navbar contents-->
-                <a class="nav-link" href="#features">Features</a>
-                <a class="nav-link" href="#behind-scenes">Behind the scenes</a>
-                <a class="nav-link" href="#products">Products</a>
-                <svg>
-                    <use href="#menu-bars"></use>
-                </svg>
-            </nav>
+            <img id="header-img" src="./Ressources/Anvil.svg">
+            <h1>Vulcanus Forge</h1>
+            <div id="nav-wrapper">
+                <div id="nav-button">
+                    <svg id="menu-bars">
+                        <use href="#menu-bars-def"></use>
+                    </svg>
+                </div>
+            </div>
+                <nav id="nav-bar" tabindex="0">
+                    <!--add navbar contents-->
+                    <a class="nav-link" href="#features">Features</a>
+                    <a class="nav-link" href="#behind-scenes">Behind the scenes</a>
+                    <a class="nav-link" href="#products">Products</a>
+                </nav>
         </header>
         <main>
             <h2>Forged for perfection</h2>
@@ -119,7 +126,7 @@
     </svg>
 
     <svg class="svg-def" xmlns="http://www.w3.org/2000/svg">
-        <symbol id="menu-bars"  viewBox="0 0 448 384">
+        <symbol id="menu-bars-def"  viewBox="0 0 448 384">
             <path d="M 416,160 H 31.1 C 14.33,160 0,174.3 0,192 c 0,17.7 14.33,32 31.1,32 h 384 c 18.6,0 32.9,-14.3 32.9,-32 0,-17.7 -14.3,-32 -32,-32 z m 0,160 H 31.1 C 14.33,320 0,334.3 0,351.1 0,367.9 14.33,384 31.1,384 h 384 c 18.6,0 32.9,-14.3 32.9,-32 0,-17.7 -14.3,-32 -32,-32 z M 416,0 H 31.1 C 14.33,0 0,14.33 0,31.1 0,47.87 14.33,64 31.1,64 h 384 C 433.7,64 448,49.7 448,32 448,14.3 433.7,0 416,0 Z" id="path10" />
         </symbol>
     </svg>
