@@ -13,23 +13,22 @@
              <!--after FCC-upload: change img to svg and src-links to Ressource Folder-->
             <img id="header-img" src="./Ressources/Anvil.svg">
             <h1>Vulcanus Forge</h1>
-            <div id="nav-wrapper">
-                <div id="nav-button">
-                    <svg id="menu-bars">
-                        <use href="#menu-bars-def"></use>
-                    </svg>
-                </div>
-            </div>
-                <nav id="nav-bar" tabindex="0">
-                    <!--add navbar contents-->
+
+            <svg id="menu-bars">
+                <use href="#menu-bars-def"></use>
+            </svg>
+            <input type="checkbox" name="nav-button" class="nav-button">
+            <label for="nav-button" class="nav-label">
+                <nav id="nav-bar">
                     <a class="nav-link" href="#features">Features</a>
                     <a class="nav-link" href="#behind-scenes">Behind the scenes</a>
                     <a class="nav-link" href="#products">Products</a>
                 </nav>
-        </header>
+            </label>
+      </header>
         <main>
-            <h2>Forged for perfection</h2>
             <div id="features">
+                <h2>Forged for perfection</h2>
                 <svg>
                     <use href="#materials-svg"></use>
                 </svg>
