@@ -1,116 +1,162 @@
-/* normalizing css */
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
 
-*, *::before, *::after, * :not(head){
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	box-sizing:border-box;
-	display:block;
-	white-space: nowrap;
 }
 
 /* --LIVESERVER-- */
 script {
         display: none;
 }
-/* --LIVESERVER END-- */
+/* ////////////// */
 
+:root {
+        --basePassiveColor: hsl(0, 0%, 15%);
+        --lightPassiveColor: hsl(0, 0%, 25%);
+        --darkPassiveColor: ;
 
-/* global font definitions */
-html {
-        font-size: 62.5%;
-        background-color: hsl(0, 0%, 15%)
+        --baseActiveColor: darkred;
+        --lightActiveColor: ;
+        --darkActiveColor: ;
+
+        --textColor: linen;
+        --baseParagraphFontSize: ;
+        --paragraphFont: "Bree Serif";
+        --paragraphFontFamily: serif;
+        --headerFont: "Rubik";
+        --headerFontFamily: sans-serif;
 }
 
-* {
-        font-family: "Bree Serif", serif;
-        color: linen;
-}
+/* Page module */
 
-h1, h2, h3 {
-        font-family: "Rubik", sans-serif;
-        color: darkred;
-}
+/* 99vw prevents problem with horizontal scrollbars */
+/* header and menu module interact, that should not be so */
 
-/* header */
+.page {
 
-header {
-        height: 17vh;
+        --pageWidth: 99vw;
+        --pageHeaderHeight: 15vh;
+        --footerHeight: ;
+
+        width: var(--pageWidth);
         display: grid;
-        grid-template-columns: 17vh 1fr 0px 17vh 0px;
-        place-items: center;
-        background-color: hsl(0, 0%, 25%);
+        grid-template-rows: var(--pageHeaderHeight) 1fr var(--footerHeight);
+
+}
+
+.page__main {
+        margin-top: var(--pageHeaderHeight);
+}
+
+.header--fixed {
+
+        --headerHeight: var(--pageHeaderHeight);
+        --headerCornerBlockWidth: var(--pageHeaderHeight);
+        --headerIconPadding: calc(var(--headerCornerBlockWidth) / 10);
+
+        width: 100%;
+        height: var(--headerHeight);
         position: fixed;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: var(--headerCornerBlockWidth) 1fr var(--headerCornerBlockWidth);
+        grid-auto-rows: var(--headerHeight);
+        place-items: center;
+        background-color: white;
 }
 
-#header-img {
-        height: 12vh;
-        justify-self: center;
+.header__icon {
+
+        height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+        width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+        padding: var(--headerIconPadding);
 }
 
-h1 {
-        height: fit-content;
-        font-size: 2.3rem;
+/* ///WIP/// */ 
+.header__title {
+
+}
+
+.menu--extendable-right {
+
+        --menuWidth: var(--headerCornerBlockWidth);
+        --menuHeight: var(--headerCornerBlockWidth);
+        --menuIconPadding: var(--headerIconPadding);
+        --menuListWidth: calc(calc(var(--pageWidth) - var(--menuWidth)) - var(--menuWidth));
+
+        height: var(--menuHeight);
+        width: var(--menuWidth);
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        place-items: center;
+        position: relative;
+}
+
+.menu__icon {
+        height: calc(var(--menuWidth) - var(--menuIconPadding));
+        width: calc(var(--menuWidth) - var(--menuIconPadding));
+        padding: var(--menuIconPadding);
+        z-index: 1;
+        fill:var(--baseActiveColor);
+
+}
+
+.menu__input {
+        position: absolute;
+        margin: 0; 
+        appearance: none;
+        z-index: 2;
+        height: var(--menuHeight);
+        width: var(--menuWidth);
+        cursor: pointer;
 }
 
 
-.nav-label {
-        height: 17vh;
-        width: 51vh;
-        margin-left: 51vh;
+.menu__list-container {
+        position: absolute;
+        height: var(--menuHeight);
+        width: var(--menuListWidth);
+        margin-left: var(--menuWidth); 
         justify-self: start;
 }
 
-.nav-button:checked + label {
-        background-color: white;
-        margin-left: -68vh;
-        transition: margin 0.5s ease-out;
+.menu__input:checked + .menu__list-container {
+        background-color: black;
+        margin-left: calc(var(--menuListWidth) * -1); 
+        transition: margin 0.75s ease-out;
 }
 
-.nav-button {
-        appearance: none;
-        z-index: 2;
-        height: 17vh;
-        width: 17vh;
-        cursor: pointer
+
+.menu__list {
+
 }
 
-#menu-bars {
-        z-index: 1;
-        place-self: center start;
-        padding: 3.5vh;
-        right: 0;
-        width: 17vh;
-        height: 17vh;
-        fill:darkred;
+.menu_list-item {
+
+}
+
+html {
+
+        background-color: var(--basePassiveColor);
+}
+
+* {
+        font-family: var(--paragraphFont), var(--paragraphFontFamily);
+        color: var(--textColor);
 }
 
 
 /* main section */
-
-main {
-        padding-top: 18vh;
-}
-
-
-
-
-
-
-
 .svg-def {
         display: none;
 }
 
 /* Only temporary */
 
-img, svg {
-        width: 15vw;
-        height: 15vw;
-}
 
-
-video {
+video, .image_debug-small {
         width: 50vw;
         height: 50vh;
 }
