@@ -13,34 +13,35 @@ script {
 
 :root {
         --basePassiveColor: hsl(0, 0%, 15%);
-        --lightPassiveColor: hsl(0, 0%, 25%);
-        --darkPassiveColor: ;
+        --lightPassiveColor: hsl(0, 0%, 20%);
+        --darkPassiveColor: hsl(0, 0%, 10%);
 
         --baseActiveColor: darkred;
-        --lightActiveColor: ;
-        --darkActiveColor: ;
+        --lightActiveColor: darkred;
+        --darkActiveColor: darkred;
 
         --textColor: linen;
         --baseParagraphFontSize: ;
         --paragraphFont: "Bree Serif";
         --paragraphFontFamily: serif;
-        --headerFont: "Rubik";
-        --headerFontFamily: sans-serif;
+        --TitleFont: "Rubik";
+        --TitleFontFamily: sans-serif;
 }
 
 /* Page module */
 
 /* 99vw prevents problem with horizontal scrollbars */
-/* header and menu module interact, that should not be so */
+/* Extract List of navigation menu buttons from slidebar module as independent module! */
 
 .page {
 
-        --pageWidth: 99vw;
-        --pageHeaderHeight: 15vh;
+        --pageWidth: 99.0476vw;
+        --pageHeaderHeight: 12vh;
         --footerHeight: ;
 
         width: var(--pageWidth);
         display: grid;
+        grid-auto-flow: column;
         grid-template-rows: var(--pageHeaderHeight) 1fr var(--footerHeight);
 
 }
@@ -49,11 +50,19 @@ script {
         margin-top: var(--pageHeaderHeight);
 }
 
+.page--theme-dark {
+        background-color: var(--basePassiveColor);
+        font-family: var(--paragraphFont), var(--paragraphFontFamily);
+        color: var(--textColor);
+}
+
 .header--fixed {
 
         --headerHeight: var(--pageHeaderHeight);
-        --headerCornerBlockWidth: var(--pageHeaderHeight);
+        --headerCornerBlockWidth: calc(var(--pageHeaderHeight) - 4px);
         --headerIconPadding: calc(var(--headerCornerBlockWidth) / 10);
+
+        padding-bottom: 4px;
 
         width: 100%;
         height: var(--headerHeight);
@@ -63,7 +72,6 @@ script {
         grid-template-columns: var(--headerCornerBlockWidth) 1fr var(--headerCornerBlockWidth);
         grid-auto-rows: var(--headerHeight);
         place-items: center;
-        background-color: white;
 }
 
 .header__icon {
@@ -73,78 +81,138 @@ script {
         padding: var(--headerIconPadding);
 }
 
-/* ///WIP/// */ 
+
 .header__title {
+        /* leave some space left to avoid overlap with 99.047vw workaround*/
+        text-align: center;
 
 }
 
-.menu--extendable-right {
+.header--theme-dark {
+        background-color: var(--basePassiveColor);
+        font-family: var(--TitleFont), var(--TitleFontFamily);
+        color: var(--baseActiveColor);
+        font-size: 1.5rem;
+}
 
-        --menuWidth: var(--headerCornerBlockWidth);
-        --menuHeight: var(--headerCornerBlockWidth);
-        --menuIconPadding: var(--headerIconPadding);
-        --menuListWidth: calc(calc(var(--pageWidth) - var(--menuWidth)) - var(--menuWidth));
 
-        height: var(--menuHeight);
-        width: var(--menuWidth);
+.slidebar--extendable-right {
+
+        --slidebarWidth: var(--headerCornerBlockWidth);
+        --slidebarHeight: var(--headerCornerBlockWidth);
+        --slidebarIconPadding: var(--headerIconPadding);
+        --slidebarListWidth: calc(calc(var(--pageWidth) - var(--slidebarWidth)) - var(--slidebarWidth));
+
+        height: var(--slidebarHeight);
+        width: var(--slidebarWidth);
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
         place-items: center;
         position: relative;
+        background-color: transparent !important;
 }
 
-.menu__icon {
-        height: calc(var(--menuWidth) - var(--menuIconPadding));
-        width: calc(var(--menuWidth) - var(--menuIconPadding));
-        padding: var(--menuIconPadding);
-        z-index: 1;
+.slidebar__input {
+        position: absolute;
+        margin: 0; 
+        appearance: none;
+        z-index: 4;
+        height: var(--slidebarHeight);
+        width: var(--slidebarWidth);
+        cursor: pointer;
+        background-color: transparent !important;
+}
+
+
+.slidebar__icon {
+        position: absolute;
+        height: calc(var(--slidebarWidth) - var(--slidebarIconPadding));
+        width: calc(var(--slidebarWidth) - var(--slidebarIconPadding));
+        padding: var(--slidebarIconPadding);
+        z-index: 3;
         fill:var(--baseActiveColor);
 
 }
 
-.menu__input {
+.slidebar__blind {
         position: absolute;
-        margin: 0; 
-        appearance: none;
         z-index: 2;
-        height: var(--menuHeight);
-        width: var(--menuWidth);
-        cursor: pointer;
+        height: var(--slidebarHeight);
+        width: calc(var(--slidebarWidth) + 20px);
+        place-self: center start;
+        border-radius: 10px 0 0 10px;
+        transition: border-radius 0.2s;
 }
 
+.slidebar__input:hover ~ .slidebar__blind, .slidebar__input:hover ~ .slidebar__icon {
+        filter: brightness(1.2);
+}
 
-.menu__list-container {
+.slidebar__input:active ~ .slidebar__blind, .slidebar__input:active ~ .slidebar__icon {
+        filter: brightness(0.9);
+}
+
+.slidebar__list-container {
         position: absolute;
-        height: var(--menuHeight);
-        width: var(--menuListWidth);
-        margin-left: var(--menuWidth); 
+        z-index: 1;
+        height: var(--slidebarHeight);
+        width: var(--slidebarListWidth);
+        margin-left: var(--slidebarWidth);
         justify-self: start;
+        transition: margin 0.35s ease-in;
+        padding: 5px;
+        border-radius: 10px 0 0 10px;
 }
 
-.menu__input:checked + .menu__list-container {
-        background-color: black;
-        margin-left: calc(var(--menuListWidth) * -1); 
-        transition: margin 0.75s ease-out;
+.slidebar__input:checked ~ .slidebar__list-container {
+        margin-left: calc(calc(var(--slidebarListWidth) * -1) + 10px); 
+        transition: margin 0.35s ease-out;
 }
 
 
-.menu__list {
-
+.slidebar__list {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 2px 10px;
 }
 
-.menu_list-item {
+.slidebar__list-item {
 
+        height: 60%;
+        padding: 0 8px;
+        text-decoration: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
 }
 
-html {
-
-        background-color: var(--basePassiveColor);
+.slidebar--theme-dark--interactive {
+        background-color: var(--darkPassiveColor);
+        font-family: var(--TitleFont), var(--TitleFontFamily);
+        color: var(--baseActiveColor);
+        font-size: 0.8rem;
+        font-weight: 500;     
 }
 
-* {
-        font-family: var(--paragraphFont), var(--paragraphFontFamily);
-        color: var(--textColor);
+.slidebar--theme-dark--interactive:hover {
+        filter: brightness(1.2);
+}
+
+.slidebar--theme-dark--interactive:active {
+        filter: brightness(0.9);
+}
+
+
+.slidebar--theme-dark {
+        background-color: var(--darkPassiveColor);
+        font-family: var(--TitleFont), var(--TitleFontFamily);
+        color: var(--baseActiveColor);
+        font-size: 0.8rem;
+        font-weight: 500;
 }
 
 
@@ -157,6 +225,10 @@ html {
 
 
 video, .image_debug-small {
-        width: 50vw;
-        height: 50vh;
+        width: 200px;
+        height: 100px;
+}
+
+.main_div {
+        background-color: var(--lightPassiveColor);
 }
