@@ -16,19 +16,39 @@ script {
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
 
-        --baseActiveColor: darkred;
-        --lightActiveColor: darkred;
-        --darkActiveColor: darkred;
+        --baseActiveColor: hsl(0, 92%, 35%);
+        --lightActiveColor: hsl(0, 92%, 45%);
+        --darkActiveColor: hsl(0, 92%, 25%);
+
+        --baseAccentColor: hsl(18, 98%, 45%);
+        --lightAccentColor: hsl(18, 98%, 50%);
+        --darkAccentColor: hsl(18, 98%, 40%);
+
 
         --textColor: linen;
-        --baseParagraphFontSize: ;
+
+        --baseParagraphFontSize: 0.6rem;
+        --smallParagraphFontSize: 0.5rem;
+        --bigParagraphFontSize: 0.7rem;
+
         --paragraphFont: "Bree Serif";
         --paragraphFontFamily: serif;
+
         --TitleFont: "Rubik";
         --TitleFontFamily: sans-serif;
+
+        --baseTitleFontSize: 1.2rem;
+        --smallTitleFontSize: 0.8rem;
+        --bigTitleFontSize: 1.5rem;
+
 }
 
-/* Page module */
+.svg-def {
+        display: none;
+}
+
+
+/* Page Module */
 
 /* 99vw prevents problem with horizontal scrollbars */
 /* Extract List of navigation menu buttons from slidebar module as independent module! */
@@ -36,8 +56,8 @@ script {
 .page {
 
         --pageWidth: 99.0476vw;
-        --pageHeaderHeight: 12vh;
-        --footerHeight: ;
+        --pageHeaderHeight: 13vh;
+        --pageFooterHeight: 10px; /* WIP */
 
         width: var(--pageWidth);
         display: grid;
@@ -47,22 +67,31 @@ script {
 }
 
 .page__main {
-        margin-top: var(--pageHeaderHeight);
+        width: calc(100% - 10px);
+        height: fit-content;
+        margin: calc(var(--pageHeaderHeight) + 5vh) 5px calc(var(--pageFooterHeight) + 5vh) 5px;
 }
 
 .page--theme-dark {
-        background-color: var(--basePassiveColor);
+        background-color: var(--lightPassiveColor);
         font-family: var(--paragraphFont), var(--paragraphFontFamily);
         color: var(--textColor);
+        background-image: url(Ressources/forge.jpg);
+        background-size: contain;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position-x: center;
 }
+
+
+/* Header Module */
 
 .header--fixed {
 
         --headerHeight: var(--pageHeaderHeight);
-        --headerCornerBlockWidth: calc(var(--pageHeaderHeight) - 4px);
+        --headerCornerBlockWidth: calc(var(--pageHeaderHeight) - 15px);
         --headerIconPadding: calc(var(--headerCornerBlockWidth) / 10);
 
-        padding-bottom: 4px;
 
         width: 100%;
         height: var(--headerHeight);
@@ -83,6 +112,7 @@ script {
 
 
 .header__title {
+
         /* leave some space left to avoid overlap with 99.047vw workaround*/
         text-align: center;
 
@@ -91,9 +121,12 @@ script {
 .header--theme-dark {
         background-color: var(--basePassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
-        color: var(--baseActiveColor);
-        font-size: 1.5rem;
+        color: var(--lightAccentColor);
+        font-size: var(--bigTitleFontSize);
+        border-radius: 0 0 10px 10px;
 }
+
+/* Slidebar Module */
 
 
 .slidebar--extendable-right {
@@ -131,8 +164,7 @@ script {
         width: calc(var(--slidebarWidth) - var(--slidebarIconPadding));
         padding: var(--slidebarIconPadding);
         z-index: 3;
-        fill:var(--baseActiveColor);
-
+        border-radius: 10px;
 }
 
 .slidebar__blind {
@@ -141,7 +173,7 @@ script {
         height: var(--slidebarHeight);
         width: calc(var(--slidebarWidth) + 20px);
         place-self: center start;
-        border-radius: 10px 0 0 10px;
+        border-radius: 10px 0 0px 10px;
         transition: border-radius 0.2s;
 }
 
@@ -161,7 +193,7 @@ script {
         margin-left: var(--slidebarWidth);
         justify-self: start;
         transition: margin 0.35s ease-in;
-        padding: 5px;
+        padding: 5px 20px 5px 10px;
         border-radius: 10px 0 0 10px;
 }
 
@@ -176,6 +208,7 @@ script {
         width: 100%;
         display: flex;
         align-items: center;
+        justify-content: center;
         padding-left: 2px 10px;
 }
 
@@ -193,8 +226,8 @@ script {
 .slidebar--theme-dark--interactive {
         background-color: var(--darkPassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
-        color: var(--baseActiveColor);
-        font-size: 0.8rem;
+        color: var(--lightActiveColor);
+        font-size: var(--smallTitleFontSize);
         font-weight: 500;     
 }
 
@@ -210,16 +243,62 @@ script {
 .slidebar--theme-dark {
         background-color: var(--darkPassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
-        color: var(--baseActiveColor);
+        color: var(--lightActiveColor);
         font-size: 0.8rem;
         font-weight: 500;
+        fill:var(--lightActiveColor);
+}
+
+/* Media Module */
+
+.media--title {
+
+        --mediaWidth: 20vw;
+        --mediaHeight: 25vw;
+
+        margin-bottom: calc(var(--mediaHeight) / 1.5);
+        padding-right: 10px;
+
+        display: grid;
+        grid-template-columns: var(--mediaWidth) 1fr;
+        grid-auto-rows: var(--mediaHeight);
+        grid-column-gap: calc(var(--mediaWidth) / 4);
+        align-items: center;
+}
+
+.media__mediaItem {
+        justify-self: center;
+        width: 88%;
+        height: 88%;
+        padding: 6%;
+}
+
+.media__contextBox {
+        display: flex;
+        flex-direction: column;
+}
+
+.media__contextTitle {
+        font-size: var(--smallTitleFontSize);
+}
+
+.media__contextParagraph {
+        font-size: var(--smallParagraphFontSize);
 }
 
 
-/* main section */
-.svg-def {
-        display: none;
+.media--theme-dark {
+        background-color: var(--darkPassiveColor);
+        color: var(--textColor);
+        fill: var(--darkAccentColor);
+        border-radius: 10px;
 }
+
+.media__contextTitle--theme-dark {
+        color: var(--darkAccentColor);
+}
+
+
 
 /* Only temporary */
 
@@ -227,8 +306,4 @@ script {
 video, .image_debug-small {
         width: 200px;
         height: 100px;
-}
-
-.main_div {
-        background-color: var(--lightPassiveColor);
 }
