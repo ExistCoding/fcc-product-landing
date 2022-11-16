@@ -29,7 +29,6 @@
             </div>
       </header>
         <main class="page__main page__main--theme" id="features">
-            <div class="section--media">
                 <div class="media--title media--theme-dark">
                     <svg class="media__mediaItem media--theme-dark">
                         <use href="#materials-svg"></use>
@@ -65,51 +64,62 @@
                     </p>
                     </div>
                 </div>
-            </div>
-            <div id="watch">
-                <h2 class="section__template">Forged for perfection</h2>
-                <video controls src="https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/dev/Ressources/steel-grinding.mp4"> <!--add src-->
+            <div class="card--video card--theme-dark" id="watch">
+                <h2 class="card__title card--theme-dark">Forged for perfection</h2>
+                <video class="card__video card--theme-dark" controls src="https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/dev/Ressources/steel-grinding.mp4"> <!--add src-->
                 </video>
+                <p class="card__description card--theme-dark">Experience the craftsmanship required for the creation of one of our masterpieces.</p>
             </div>
-            <div id="buy">
-                <article class="product">
-                    <h3>Browse Our Armory</h3>
-                    <p class="product-desc">Take a look at all the weapons and armor currently for sale at Vulcanus Forge</p>
-                    <img class="image_debug-small" loading="lazy" src="./Ressources/armor.jpg">
-                    <a id="product-sale" href="#product-sale">Buy</a>
+
+                <article class="card--imageButton card--theme-dark">
+                    <h3 class="card__title card--theme-dark">Browse Our Armory</h3>
+                    <p class="card__description card--theme-dark">Take a look at all the weapons and armor currently for sale at Vulcanus Forge</p>
+                    <div class="card__imageWrapper card--theme-dark">
+                        <img class="card__image card--theme-dark" loading="lazy" src="./Ressources/armor.jpg">
+                    </div>
+                    <a class="card__button card--theme-dark" id="product-sale" href="#product-sale">Buy</a>
                 </article>
-                <article class="product">
-                    <h3>Fantasy Comissions</h3>
-                    <p class="product-desc">Browse through our fantastic collection of fictional masterpieces. Comissioned by our customers, designed and forged by Vulcanus Forge</p>
-                    <img class="image_debug-small" loading="lazy" src="./Ressources/fantweapon.jpg">
-                    <a id="product-fant" href="#product-fant">Select</a>
+                <article class="card--imageButton card--theme-dark">
+                    <h3 class="card__title card--theme-dark">Fantasy Comissions</h3>
+                    <p class="card__description card--theme-dark">Browse through our fantastic collection of fictional masterpieces. Comissioned by our customers, designed and forged by Vulcanus Forge</p>
+                    <div class="card__imageWrapper card--theme-dark">
+                        <img class="card__image card--theme-dark" loading="lazy" src="./Ressources/fantweapon.jpg">
+                    </div>
+                    <a class="card__button card--theme-dark" id="product-fant" href="#product-fant">Select</a>
                 </article>
-                <article class="product">
-                    <h3>Historical Comissions</h3>
-                    <p class="product-desc">Discover our extensive chronicles of authentic replicas and historically inspired designs.</p>
-                    <img class="image_debug-small" loading="lazy" src="./Ressources/histweapon.jpg">
-                    <a id="product-hist" href="#product-hist">Select</a>
+                <article class="card--imageButton card--theme-dark">
+                    <h3 class="card__title">Historical Comissions</h3>
+                    <p class="card__description card--theme-dark">Discover our extensive chronicles of authentic replicas and historically inspired designs.</p>
+                    <div class="card__imageWrapper card--theme-dark">
+                        <img class="card__image card--theme-dark" loading="lazy" src="./Ressources/histweapon.jpg">
+                    </div>
+                    <a class="card__button card--theme-dark" id="product-hist" href="#product-hist">Select</a>
                 </article>
-            </div>
-            <div>
-                <p class="contact" id="contact-ask">Want to ask us a question or comission a piece?</p>
-                <p class="contact" id="contact-call">Get in touch with us and we can start designing your unique masterpiece today</p>
-                <form id="form" action="https://www.freecodecamp.com/email-submit">
-                    <input required id="email" name="email" type="email" placeholder="Enter your E-Mail">
-                    <textarea></textarea>
-                    <input id="submit" type="submit">
+                <form class="contactCard contactCard--themeDark" id="form" action="https://www.freecodecamp.com/email-submit">
+                    <div class="contactCard__titleWrapper contactCard--themeDark">
+                        <p class="contactCard__title contactCard--themeDark" id="contact-ask">Want to ask us a question or comission a piece?</p>
+                        <p class="contactCard__subtitle contactCard--themeDark" id="contact-call">Get in touch with us and we can start designing your unique masterpiece today!</p>    
+                    </div>
+                    <div class="contactCard__emailWrapper contactCard--themeDark">
+                        <label class="contactCard__emailLabel" for="email">Email:</label>
+                        <input class="contactCard__emailInput contactCard--themeDark" required id="email" name="email" type="email" placeholder="Enter your E-Mail">
+                    </div>
+                    <textarea class="contactCard__textarea contactCard--themeDark" placeholder="Enter your request"></textarea>
+                    <input class="contactCard__button contactCard--themeDark" action="placeholder" id="submit" type="submit" value="Submit">
                 </form>
             </div>
             <footer>
-                <a>Privacy</a>
-                <a>Terms</a>
-                <a>Attributions</a>
-                <br>
+                <div>
+                    <a>Privacy</a>
+                    <a>Terms</a>
+                    <a>Attributions</a>
+                </div>
                 <addresse>
                     <a>VulcanusForge@dummymail.me</a> <br>
                     <p>Vulcanstreet 42</p>
                     <p>Etna, Italy</p>
-                </addresse>  
+                </addresse>
+                <span>Copyright 2001, Vulcanus Forge</span>
             </footer>
         </main>
     </body>

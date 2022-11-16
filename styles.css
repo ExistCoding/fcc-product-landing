@@ -38,7 +38,7 @@ script {
         --TitleFontFamily: sans-serif;
 
         --baseTitleFontSize: 1.2rem;
-        --smallTitleFontSize: 0.8rem;
+        --smallTitleFontSize: 1rem;
         --bigTitleFontSize: 1.5rem;
 
 }
@@ -48,7 +48,7 @@ script {
 }
 
 
-/* Page Module */
+
 
 /* 99vw prevents problem with horizontal scrollbars */
 /* Extract List of navigation menu buttons from slidebar module as independent module! */
@@ -70,10 +70,16 @@ script {
         width: calc(100% - 10px);
         height: fit-content;
         margin: calc(var(--pageHeaderHeight) + 5vh) 5px calc(var(--pageFooterHeight) + 5vh) 5px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 }
 
 .page--theme-dark {
-        background-color: var(--lightPassiveColor);
+        background-color: hsl(0, 0%, 11.5%);
+        background-blend-mode: lighten;
+
         font-family: var(--paragraphFont), var(--paragraphFontFamily);
         color: var(--textColor);
         background-image: url(Ressources/forge.jpg);
@@ -84,7 +90,7 @@ script {
 }
 
 
-/* Header Module */
+
 
 .header--fixed {
 
@@ -126,7 +132,7 @@ script {
         border-radius: 0 0 10px 10px;
 }
 
-/* Slidebar Module */
+
 
 
 .slidebar--extendable-right {
@@ -249,20 +255,21 @@ script {
         fill:var(--lightActiveColor);
 }
 
-/* Media Module */
+
+
 
 .media--title {
 
-        --mediaWidth: 20vw;
+        --mediaItemWidth: 20vw;
         --mediaHeight: 25vw;
 
         margin-bottom: calc(var(--mediaHeight) / 1.5);
         padding-right: 10px;
 
         display: grid;
-        grid-template-columns: var(--mediaWidth) 1fr;
+        grid-template-columns: var(--mediaItemWidth) 1fr;
         grid-auto-rows: var(--mediaHeight);
-        grid-column-gap: calc(var(--mediaWidth) / 4);
+        grid-column-gap: calc(var(--mediaItemWidth) / 4);
         align-items: center;
 }
 
@@ -300,10 +307,181 @@ script {
 
 
 
-/* Only temporary */
+
+.card--video {
+        --cardWidth: 80vw;
+        --cardHeight: 70vh;
+
+        padding: 10px;
+        margin-top: calc(var(--cardHeight) / 8);
+
+        width: var(--cardWidth);
+        height: var(--cardHeight);
+        display: flex;
+        flex-direction: column; 
+        place-content: center space-around;
+}
+
+.card--theme-dark {
+        color: var(--textColor);
+        background-color: var(--darkPassiveColor);
+        border-radius: 10px;
+}
+
+.card__title {
+        color: var(--darkAccentColor);
+
+        text-align: center;
+        font-size: var(--baseTitleFontSize);
+}
+
+.card__video {
+        margin: 0 10px;
+}
+
+.card__description {
+        font-size: var(--smallTitleFontSize)
+}
 
 
-video, .image_debug-small {
-        width: 200px;
-        height: 100px;
+
+
+.card--imageButton {
+        --cardWidth: 80vw;
+        --cardHeight: 100vh;
+
+        padding: 10px;
+        margin-top: calc(var(--cardHeight) / 8);
+        place-items: center;
+
+        width: var(--cardWidth);
+        height: var(--cardHeight);
+        display: flex;
+        flex-direction: column; 
+        place-content: center space-around;
+}
+
+.card__imageWrapper {
+
+        margin: 0 10px;
+
+        width: fit-content;
+        height: fit-content;
+        overflow: hidden;
+        height: calc(calc(var(--cardHeight) / 6) * 3.5);
+        display: grid;
+        place-content: center;
+}
+
+.card__image {
+        max-height: calc(calc(var(--cardHeight) / 100) * 50);
+        object-fit: contain;
+        width: 100%;
+}
+
+.card__button {
+        width: 60%;
+        height: calc(var(--baseTitleFontSize) + 5px);
+        color: var(--lightActiveColor);
+        font-size: var(--baseTitleFontSize);
+        line-height: var(--baseTitleFontSize);
+        background-color: var(--basePassiveColor);
+
+        align-self: center;
+        text-align: center;
+        text-decoration: none;
+}
+
+.card__button:hover {
+        filter: brightness(1.2);
+}
+
+.card__button:active {
+        filter: brightness(0.9);
+}
+
+
+
+.contactCard {
+       --contactForm-Width: 100%;
+       --contactForm-Height: 80vh;
+
+
+        margin: calc(var(--contactForm-Height) / 4) 0;
+        padding: 20px 15px;
+
+        width: var(--contactForm-Width);
+        height: var(--contactForm-Height);
+        display: flex;
+        flex-direction: column;
+        place-content: stretch;
+        place-items: stretch center;
+}
+
+.contactCard--themeDark {
+        color: var(--textColor);
+        background-color: var(--darkPassiveColor);
+        border-radius: 10px;
+}
+
+.contactCard__titleWrapper {
+        margin-bottom: var(--bigTitleFontSize);
+}
+
+.contactCard__title {
+        color: var(--darkAccentColor);
+        font-size: var(--smallTitleFontSize);
+        padding-bottom: var(--smallParagraphFontSize);
+
+        text-align: center;
+}
+
+.contactCard__subtitle {
+        color: var(--textColor);
+        font-size: var(--bigParagraphFontSize);
+}
+
+.contactCard__emailWrapper {
+        margin: var(--bigParagraphFontSize) 0;
+        height: calc(var(--bigParagraphFontSize) * 3);
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+}
+
+.contactCard__emailLabel {
+        font-size: var(--bigParagraphFontSize);
+}
+
+.contactCard__emailInput {
+        height: calc(var(--baseParagraphFontSize) * 3);
+        padding: 0 var(--baseParagraphFontSize);
+        background-color: var(--basePassiveColor);
+        font-size: var(--bigParagraphFontSize);
+
+        border: none;
+}
+
+.contactCard__emailInput:focus {
+        outline: none;
+}
+
+.contactCard__textarea {
+        height: calc(var(--baseParagraphFontSize) * 30);
+        padding: var(--baseParagraphFontSize);
+        background-color: var(--basePassiveColor);
+        margin: var(--bigParagraphFontSize) 0;
+        font-size: var(--bigParagraphFontSize);
+
+        border: none;
+        resize: none;
+}
+
+.contactCard__textarea:focus {
+        outline: none;
+}
+
+.contactCard__button {
+
 }
