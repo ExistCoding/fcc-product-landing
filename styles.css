@@ -306,7 +306,7 @@ script {
 }
 
 
-
+/* refactor card and content card to push their idea of responsiveness and versatility further */
 
 .card--video {
         --cardWidth: 80vw;
@@ -320,6 +320,7 @@ script {
         display: flex;
         flex-direction: column; 
         place-content: center space-around;
+        place-items: center;
 }
 
 .card--theme-dark {
@@ -337,6 +338,7 @@ script {
 
 .card__video {
         margin: 0 10px;
+        max-width: calc(var(--cardWidth) - 40px);
 }
 
 .card__description {
@@ -366,6 +368,7 @@ script {
         margin: 0 10px;
 
         width: fit-content;
+        max-width: var(--cardWidth);
         height: fit-content;
         overflow: hidden;
         height: calc(calc(var(--cardHeight) / 6) * 3.5);
