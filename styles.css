@@ -52,24 +52,26 @@ script {
 
 /* 99vw prevents problem with horizontal scrollbars */
 /* Extract List of navigation menu buttons from slidebar module as independent module! */
+/* width problem!!! */
 
 .page {
 
         --pageWidth: 99.0476vw;
         --pageHeaderHeight: 13vh;
-        --pageFooterHeight: 10px; /* WIP */
+        --pageFooterHeight: 18vh;
+        --pageSideMargin: 5px;
 
         width: var(--pageWidth);
         display: grid;
-        grid-auto-flow: column;
-        grid-template-rows: var(--pageHeaderHeight) 1fr var(--footerHeight);
+        grid-auto-flow: row;
+        grid-template-rows: 1fr var(--footerHeight);
 
 }
 
 .page__main {
-        width: calc(100% - 10px);
+        width: calc(var(--pageWidth) - calc(var(--pageSideMargin) * 2));
         height: fit-content;
-        margin: calc(var(--pageHeaderHeight) + 5vh) 5px calc(var(--pageFooterHeight) + 5vh) 5px;
+        margin: calc(var(--pageHeaderHeight) + 5vh) var(--pageSideMargin) calc(var(--pageFooterHeight) + 5vh) var(--pageSideMargin);
 
         display: flex;
         flex-direction: column;
@@ -486,5 +488,40 @@ script {
 }
 
 .contactCard__button {
+        background-color: var(--lightPassiveColor);
+        color: var(--lightActiveColor);
+        height: 5rem;
+        font-size: var(--smallTitleFontSize);
+        font-family: var(--paragraphFont), var(--paragraphFontFamily);
 
+        border:none;
+}
+
+
+.contactCard__button:hover {
+        filter: brightness(1.2);
+        cursor: pointer;
+}
+
+.contactCard__button:active {
+        filter: brightness(0.9);
+}
+
+.footer {
+        --footerHeight: var(--pageFooterHeight);
+        --footerSideMargin: var(--pageSideMargin);
+
+        height: var(--footerHeight);
+        margin: 0 var(--footerSideMargin) 0 var(--footerSideMargin);
+        width: auto;
+
+
+}
+
+.footer--themeDark {
+        background-color: var(--basePassiveColor);
+        font-family: sans-serif;
+        color: var(--textColor);
+        font-size: var(--smallParagraphFontSize);
+        border-radius: 10px 10px 0px 0px;
 }
