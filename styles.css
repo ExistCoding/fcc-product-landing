@@ -56,12 +56,11 @@ script {
 
 .page {
 
-        --pageWidth: 99.0476vw;
         --pageHeaderHeight: 13vh;
         --pageFooterHeight: 18vh;
         --pageSideMargin: 5px;
 
-        width: var(--pageWidth);
+        width: 100%;
         display: grid;
         grid-auto-flow: row;
         grid-template-rows: 1fr var(--footerHeight);
@@ -69,7 +68,7 @@ script {
 }
 
 .page__main {
-        width: calc(var(--pageWidth) - calc(var(--pageSideMargin) * 2));
+        width: calc(100% - calc(var(--pageSideMargin) * 2));
         height: fit-content;
         margin: calc(var(--pageHeaderHeight) + 5vh) var(--pageSideMargin) calc(var(--pageFooterHeight) + 5vh) var(--pageSideMargin);
 
@@ -96,9 +95,9 @@ script {
 
 .header--fixed {
 
-        --headerHeight: var(--pageHeaderHeight);
-        --headerCornerBlockWidth: calc(var(--pageHeaderHeight) - 15px);
-        --headerIconPadding: calc(var(--headerCornerBlockWidth) / 10);
+        --headerHeight: 13vh;
+        --headerCornerBlockWidth: calc(13vh - 15px);
+        --headerIconPadding: 1vh;
 
 
         width: 100%;
@@ -139,10 +138,10 @@ script {
 
 .slidebar--extendable-right {
 
-        --slidebarWidth: var(--headerCornerBlockWidth);
-        --slidebarHeight: var(--headerCornerBlockWidth);
-        --slidebarIconPadding: var(--headerIconPadding);
-        --slidebarListWidth: calc(calc(var(--pageWidth) - var(--slidebarWidth)) - var(--slidebarWidth));
+        --slidebarWidth: calc(13vh - 15px);
+        --slidebarHeight: calc(13vh - 15px);
+        --slidebarIconPadding: 1vh;
+        --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
 
         height: var(--slidebarHeight);
         width: var(--slidebarWidth);
@@ -408,7 +407,7 @@ script {
 
 
 .contactCard {
-       --contactForm-Width: 100%;
+       --contactForm-Width: 99vw;
        --contactForm-Height: 80vh;
 
 
