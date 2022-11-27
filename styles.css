@@ -12,6 +12,9 @@ script {
 /* ////////////// */
 
 :root {
+
+        width: 100%;
+
         --basePassiveColor: hsl(0, 0%, 15%);
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
@@ -70,8 +73,8 @@ script {
 .page__main {
         width: calc(100% - calc(var(--pageSideMargin) * 2));
         height: fit-content;
-        margin: calc(var(--pageHeaderHeight) + 5vh) var(--pageSideMargin) calc(var(--pageFooterHeight) + 5vh) var(--pageSideMargin);
 
+        margin: calc(var(--pageHeaderHeight) + 10px) auto 10px auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -267,6 +270,7 @@ script {
         margin-bottom: calc(var(--mediaHeight) / 1.5);
         padding-right: 10px;
 
+        width: 100%;
         display: grid;
         grid-template-columns: var(--mediaItemWidth) 1fr;
         grid-auto-rows: var(--mediaHeight);
@@ -308,15 +312,15 @@ script {
 
 
 /* refactor card and content card to push their idea of responsiveness and versatility further */
+/* refactor to not be dependent on card Width */
 
 .card--video {
-        --cardWidth: 80vw;
         --cardHeight: 70vh;
 
         padding: 10px;
         margin-top: calc(var(--cardHeight) / 8);
 
-        width: var(--cardWidth);
+        width: 100%;
         height: var(--cardHeight);
         display: flex;
         flex-direction: column; 
@@ -339,7 +343,7 @@ script {
 
 .card__video {
         margin: 0 10px;
-        max-width: calc(var(--cardWidth) - 40px);
+        max-width: 100%;
 }
 
 .card__description {
@@ -350,14 +354,13 @@ script {
 
 
 .card--imageButton {
-        --cardWidth: 80vw;
         --cardHeight: 100vh;
 
         padding: 10px;
         margin-top: calc(var(--cardHeight) / 8);
         place-items: center;
 
-        width: var(--cardWidth);
+        width: 100%;
         height: var(--cardHeight);
         display: flex;
         flex-direction: column; 
@@ -407,14 +410,13 @@ script {
 
 
 .contactCard {
-       --contactForm-Width: 99vw;
        --contactForm-Height: 80vh;
 
 
-        margin: calc(var(--contactForm-Height) / 4) 0;
         padding: 20px 15px;
+        margin: 15vh 0;
 
-        width: var(--contactForm-Width);
+        width: 100%;
         height: var(--contactForm-Height);
         display: flex;
         flex-direction: column;
@@ -511,7 +513,6 @@ script {
         --footerSideMargin: var(--pageSideMargin);
 
         height: var(--footerHeight);
-        margin: 0 var(--footerSideMargin) 0 var(--footerSideMargin);
         width: auto;
 
 
