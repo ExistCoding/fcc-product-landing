@@ -12,9 +12,6 @@ script {
 /* ////////////// */
 
 :root {
-
-        width: 100%;
-
         --basePassiveColor: hsl(0, 0%, 15%);
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
@@ -44,6 +41,8 @@ script {
         --smallTitleFontSize: 1rem;
         --bigTitleFontSize: 1.5rem;
 
+        --componentMarginModule: 10vh;
+        --componentMarginSection: 20vh;
 }
 
 .svg-def {
@@ -267,7 +266,7 @@ script {
         --mediaItemWidth: 20vw;
         --mediaHeight: 25vw;
 
-        margin-bottom: calc(var(--mediaHeight) / 1.5);
+        margin-bottom: var(--componentMarginModule);
         padding-right: 10px;
 
         width: 100%;
@@ -276,6 +275,10 @@ script {
         grid-auto-rows: var(--mediaHeight);
         grid-column-gap: calc(var(--mediaItemWidth) / 4);
         align-items: center;
+}
+
+div.media--title:nth-of-type(3) {
+        margin-bottom: var(--componentMarginSection);
 }
 
 .media__mediaItem {
@@ -318,9 +321,9 @@ script {
         --cardHeight: 70vh;
 
         padding: 10px;
-        margin-top: calc(var(--cardHeight) / 8);
+        margin: 0 6% var(--componentMarginSection) 6%;
+        width: 88%;
 
-        width: 100%;
         height: var(--cardHeight);
         display: flex;
         flex-direction: column; 
@@ -357,14 +360,18 @@ script {
         --cardHeight: 100vh;
 
         padding: 10px;
-        margin-top: calc(var(--cardHeight) / 8);
+        margin: 0 6% var(--componentMarginModule) 6%;
         place-items: center;
+        width: 88%;
 
-        width: 100%;
         height: var(--cardHeight);
         display: flex;
         flex-direction: column; 
         place-content: center space-around;
+}
+
+article.card--imageButton:nth-of-type(3) {
+        margin:  0 6% var(--componentMarginSection) 6%;
 }
 
 .card__imageWrapper {
@@ -372,7 +379,6 @@ script {
         margin: 0 10px;
 
         width: fit-content;
-        max-width: var(--cardWidth);
         height: fit-content;
         overflow: hidden;
         height: calc(calc(var(--cardHeight) / 6) * 3.5);
@@ -414,7 +420,7 @@ script {
 
 
         padding: 20px 15px;
-        margin: 15vh 0;
+        margin: 0 0 var(--componentMarginModule) 0;
 
         width: 100%;
         height: var(--contactForm-Height);
@@ -514,7 +520,10 @@ script {
 
         height: var(--footerHeight);
         width: auto;
-
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 70% 30%;
+        grid-auto-flow: row;
 
 }
 
@@ -524,4 +533,26 @@ script {
         color: var(--textColor);
         font-size: var(--smallParagraphFontSize);
         border-radius: 10px 10px 0px 0px;
+}
+
+.footer__addresse {
+        grid-column: 2/-1;
+        grid-row: 2/-1;
+        place-self: end end;
+        text-align: left;
+        padding: 0 2vh 2vh 0;
+}
+
+.footer__addresse__paragraph {
+        text-align:  right;
+}
+
+.footer__links {
+        grid-column: 1/-1;
+        place-self: center;
+}
+
+.footer__copyright {
+        place-self: end start;
+        padding: 0 0 2vh 2vh;
 }
