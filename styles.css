@@ -58,8 +58,8 @@ script {
 
 .page {
 
-        --pageHeaderHeight: 13vh;
-        --pageFooterHeight: 18vh;
+        --pageHeaderHeight: 13vmax;
+        --pageFooterHeight: 18vmax;
         --pageSideMargin: 5px;
 
         width: 100%;
@@ -97,8 +97,8 @@ script {
 
 .header--fixed {
 
-        --headerHeight: 13vh;
-        --headerCornerBlockWidth: calc(13vh - 15px);
+        --headerHeight: 13vmax;
+        --headerCornerBlockWidth: calc(13vmax - 15px);
         --headerIconPadding: 1vh;
 
 
@@ -140,8 +140,8 @@ script {
 
 .slidebar--extendable-right {
 
-        --slidebarWidth: calc(13vh - 15px);
-        --slidebarHeight: calc(13vh - 15px);
+        --slidebarWidth: calc(13vmax - 15px);
+        --slidebarHeight: calc(13vmax - 15px);
         --slidebarIconPadding: 1vh;
         --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
 
@@ -318,7 +318,7 @@ div.media--title:nth-of-type(3) {
 /* refactor to not be dependent on card Width */
 
 .card--video {
-        --cardHeight: 70vh;
+        --cardHeight: 70vmax;
 
         padding: 10px;
         margin: 0 6% var(--componentMarginSection) 6%;
@@ -515,8 +515,8 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 .footer {
-        --footerHeight: var(--pageFooterHeight);
-        --footerSideMargin: var(--pageSideMargin);
+        --footerHeight: 18vmax;
+        --footerSideMargin: 5px;
 
         height: var(--footerHeight);
         width: auto;
@@ -547,12 +547,24 @@ article.card--imageButton:nth-of-type(3) {
         text-align:  right;
 }
 
-.footer__links {
+.footer__linkContainer {
         grid-column: 1/-1;
         place-self: center;
+}
+
+.footer__link {
+        font-size: var(--bigParagraphFontSize);
+        color: var(--baseActiveColor);
+        margin: 0 5vmin;
 }
 
 .footer__copyright {
         place-self: end start;
         padding: 0 0 2vh 2vh;
+}
+
+@media (orientation: landscape){
+        .page {
+                --pageSideMargin: 8vw;
+        }
 }
