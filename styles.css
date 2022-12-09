@@ -43,6 +43,8 @@ script {
 
         --componentMarginModule: 10vh;
         --componentMarginSection: 20vh;
+
+        background-color: var(--darkActiveColor);
 }
 
 .svg-def {
@@ -52,9 +54,7 @@ script {
 
 
 
-/* 99vw prevents problem with horizontal scrollbars */
 /* Extract List of navigation menu buttons from slidebar module as independent module! */
-/* width problem!!! */
 
 .page {
 
@@ -86,7 +86,7 @@ script {
         font-family: var(--paragraphFont), var(--paragraphFontFamily);
         color: var(--textColor);
         background-image: url(Ressources/forge.jpg);
-        background-size: contain;
+        background-size: cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-position-x: center;
@@ -97,9 +97,9 @@ script {
 
 .header--fixed {
 
-        --headerHeight: 13vmax;
-        --headerCornerBlockWidth: calc(13vmax - 15px);
-        --headerIconPadding: 1vh;
+        --headerHeight: calc(13vmax - 10px);
+        --headerCornerBlockWidth: calc(13vmax - 10px);
+        --headerIconPadding: 1vmax;
 
 
         width: 100%;
@@ -112,17 +112,21 @@ script {
         place-items: center;
 }
 
-.header__icon {
+.header__link {
+        height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+        width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+}
 
+
+.header__icon {
         height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
         width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
         padding: var(--headerIconPadding);
+        fill: var(--lightActiveColor);
 }
 
 
 .header__title {
-
-        /* leave some space left to avoid overlap with 99.047vw workaround*/
         text-align: center;
 
 }
@@ -137,12 +141,11 @@ script {
 
 
 
-
 .slidebar--extendable-right {
 
-        --slidebarWidth: calc(13vmax - 15px);
-        --slidebarHeight: calc(13vmax - 15px);
-        --slidebarIconPadding: 1vh;
+        --slidebarWidth: calc(13vmax - 14px);
+        --slidebarHeight: calc(13vmax - 14px);
+        --slidebarIconPadding: 1vmax;
         --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
 
         height: var(--slidebarHeight);
@@ -312,10 +315,6 @@ div.media--title:nth-of-type(3) {
 .media__contextTitle--theme-dark {
         color: var(--darkAccentColor);
 }
-
-
-/* refactor card and content card to push their idea of responsiveness and versatility further */
-/* refactor to not be dependent on card Width */
 
 .card--video {
         --cardHeight: 70vmax;
@@ -564,7 +563,35 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 @media (orientation: landscape){
+        .page--theme-dark {
+        background-image: url(https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/master/Ressources/forgegrind.jpg);
+        }
         .page {
                 --pageSideMargin: 8vw;
+        }
+
+        .media--title {
+                width: 75%
+        }
+
+        @media (min-width: 700px) {
+                .header--fixed {
+                        --headerHeight: 100px;
+                        --headerCornerBlockWidth: calc(100px - 15px);
+                        --headerIconPadding: 15px;
+                }
+
+                .slidebar--extendable-right {
+
+                        --slidebarWidth: 90px;
+                        --slidebarHeight: 90px;
+                        --slidebarIconPadding: 7px;
+                        --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
+                }
+
+                .footer {
+                        --footerHeight: 100px;
+                        --footerSideMargin: 10px;
+                }
         }
 }
