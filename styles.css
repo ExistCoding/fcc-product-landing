@@ -113,8 +113,8 @@ script {
 }
 
 .header__link {
-        height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
-        width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+        height: 100%;
+        width: 100%;
 }
 
 
@@ -557,6 +557,14 @@ article.card--imageButton:nth-of-type(3) {
         margin: 0 5vmin;
 }
 
+.footer__link:hover {
+        color: var(--lightActiveColor);
+}
+
+.footer__link:active {
+        color: var(--darkActiveColor);
+}
+
 .footer__copyright {
         place-self: end start;
         padding: 0 0 2vh 2vh;
@@ -577,7 +585,7 @@ article.card--imageButton:nth-of-type(3) {
         @media (min-width: 700px) {
                 .header--fixed {
                         --headerHeight: 100px;
-                        --headerCornerBlockWidth: calc(100px - 15px);
+                        --headerCornerBlockWidth: 100px;
                         --headerIconPadding: 15px;
                 }
 
