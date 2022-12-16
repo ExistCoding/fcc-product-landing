@@ -16,11 +16,8 @@ script {
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
 
-        --baseActiveColor: hsl(0, 92%, 35%);
-        --lightActiveColor: hsl(0, 92%, 45%);
-        --darkActiveColor: hsl(0, 92%, 25%);
+        --activeColor: hsl(0, 92%, 45%);
 
-        --baseAccentColor: hsl(18, 98%, 45%);
         --lightAccentColor: hsl(18, 98%, 50%);
         --darkAccentColor: hsl(18, 98%, 40%);
 
@@ -43,8 +40,6 @@ script {
 
         --componentMarginModule: 10vh;
         --componentMarginSection: 20vh;
-
-        background-color: var(--darkActiveColor);
 }
 
 .svg-def {
@@ -122,7 +117,15 @@ script {
         height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
         width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
         padding: var(--headerIconPadding);
-        fill: var(--lightActiveColor);
+        fill: var(--darkAccentColor);
+}
+
+.header__link:hover > .header__icon {
+        fill: var(--lightAccentColor);
+}
+
+.header__link:active > .header__icon {
+        fill: var(--darkAccentColor);
 }
 
 
@@ -136,7 +139,7 @@ script {
         font-family: var(--TitleFont), var(--TitleFontFamily);
         color: var(--lightAccentColor);
         font-size: var(--bigTitleFontSize);
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 0 10px;
 }
 
 
@@ -220,13 +223,14 @@ script {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         padding-left: 2px 10px;
 }
 
 .slidebar__list-item {
 
-        height: 60%;
+        height: fit-content;
+        max-height: 25px;
         padding: 0 8px;
         text-decoration: none;
         text-align: center;
@@ -238,7 +242,7 @@ script {
 .slidebar--theme-dark--interactive {
         background-color: var(--darkPassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
-        color: var(--lightActiveColor);
+        color: var(--darkAccentColor);
         font-size: var(--smallTitleFontSize);
         font-weight: 500;     
 }
@@ -255,10 +259,10 @@ script {
 .slidebar--theme-dark {
         background-color: var(--darkPassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
-        color: var(--lightActiveColor);
+        color: var(--darkAccentColor);
         font-size: 0.8rem;
         font-weight: 500;
-        fill:var(--lightActiveColor);
+        fill:var(--darkAccentColor);
 }
 
 
@@ -266,8 +270,8 @@ script {
 
 .media--title {
 
-        --mediaItemWidth: 20vw;
-        --mediaHeight: 25vw;
+        --mediaItemWidth: 20vmin;
+        --mediaHeight: 25vmin;
 
         margin-bottom: var(--componentMarginModule);
         padding-right: 10px;
@@ -308,12 +312,12 @@ div.media--title:nth-of-type(3) {
 .media--theme-dark {
         background-color: var(--darkPassiveColor);
         color: var(--textColor);
-        fill: var(--darkAccentColor);
+        fill: var(--lightAccentColor);
         border-radius: 10px;
 }
 
 .media__contextTitle--theme-dark {
-        color: var(--darkAccentColor);
+        color: var(--lightAccentColor);
 }
 
 .card--video {
@@ -337,7 +341,7 @@ div.media--title:nth-of-type(3) {
 }
 
 .card__title {
-        color: var(--darkAccentColor);
+        color: var(--lightAccentColor);
 
         text-align: center;
         font-size: var(--baseTitleFontSize);
@@ -353,10 +357,13 @@ div.media--title:nth-of-type(3) {
 }
 
 
-
+/* IDEA!!!!!! USE FIT CONTENT ON .card--imageButton AND HAVE VARIABLES FOR THE 
+        HEIGHT OF ALL CHILDREN. THUS YOU CAN FREELY DECIDED WHERE TO USE 
+        FIXED DECLARATIONS AND WHERE TO USE FIT CONTENT. IF TOTAL HEIGHT OF CARD
+        HAS TO BE CERTAIN VALUE IT HAS TO BE DESIGNED THROUGH DEFINING ALL CHILDREN */
 
 .card--imageButton {
-        --cardHeight: 100vh;
+        --cardHeight: 100vmax;
 
         padding: 10px;
         margin: 0 6% var(--componentMarginModule) 6%;
@@ -378,11 +385,10 @@ article.card--imageButton:nth-of-type(3) {
         margin: 0 10px;
 
         width: fit-content;
-        height: fit-content;
+        height: calc(calc(var(--cardHeight) / 10) * 7);
         overflow: hidden;
-        height: calc(calc(var(--cardHeight) / 6) * 3.5);
         display: grid;
-        place-content: center;
+        place-content: center center;
 }
 
 .card__image {
@@ -394,7 +400,7 @@ article.card--imageButton:nth-of-type(3) {
 .card__button {
         width: 60%;
         height: calc(var(--baseTitleFontSize) + 5px);
-        color: var(--lightActiveColor);
+        color: var(--darkAccentColor);
         font-size: var(--baseTitleFontSize);
         line-height: var(--baseTitleFontSize);
         background-color: var(--basePassiveColor);
@@ -440,7 +446,7 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 .contactCard__title {
-        color: var(--darkAccentColor);
+        color: var(--lightAccentColor);
         font-size: var(--smallTitleFontSize);
         padding-bottom: var(--smallParagraphFontSize);
 
@@ -495,7 +501,7 @@ article.card--imageButton:nth-of-type(3) {
 
 .contactCard__button {
         background-color: var(--lightPassiveColor);
-        color: var(--lightActiveColor);
+        color: var(--lightAccentColor);
         height: 5rem;
         font-size: var(--smallTitleFontSize);
         font-family: var(--paragraphFont), var(--paragraphFontFamily);
@@ -553,16 +559,16 @@ article.card--imageButton:nth-of-type(3) {
 
 .footer__link {
         font-size: var(--bigParagraphFontSize);
-        color: var(--baseActiveColor);
+        color: var(--darkAccentColor);
         margin: 0 5vmin;
 }
 
 .footer__link:hover {
-        color: var(--lightActiveColor);
+        color: var(--lightAccentColor);
 }
 
 .footer__link:active {
-        color: var(--darkActiveColor);
+        color: var(--darkAccentColor);
 }
 
 .footer__copyright {
@@ -588,6 +594,8 @@ article.card--imageButton:nth-of-type(3) {
                         --headerCornerBlockWidth: 100px;
                         --headerIconPadding: 15px;
                 }
+
+
 
                 .slidebar--extendable-right {
 
