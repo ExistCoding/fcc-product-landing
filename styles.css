@@ -16,6 +16,8 @@ script {
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
 
+        --headFootPassiveColor: hsl(0, 0%, 14%);
+
         --darkActiveColor: hsl(0, 92%, 40%);
         --lightActiveColor: hsl(0, 92%, 50%);
 
@@ -41,6 +43,8 @@ script {
 
         --componentMarginModule: 10vh;
         --componentMarginSection: 20vh;
+        
+        scroll-behavior: smooth;
 }
 
 .svg-def {
@@ -100,6 +104,7 @@ script {
 
         width: 100%;
         height: var(--headerHeight);
+
         position: fixed;
         display: grid;
         grid-auto-flow: column;
@@ -136,7 +141,7 @@ script {
 }
 
 .header--theme-dark {
-        background-color: var(--basePassiveColor);
+        background-color: var(--headFootPassiveColor);
         font-family: var(--TitleFont), var(--TitleFontFamily);
         color: var(--lightAccentColor);
         font-size: var(--bigTitleFontSize);
@@ -423,17 +428,17 @@ article.card--imageButton:nth-of-type(3) {
 
 
 .contactCard {
-       --contactForm-Height: 80vmax;
+       --contactForm-Height: 80vh;
 
 
-        padding: 20px 15px;
+        padding: 4vmax 2vmax;
         margin: 0 0 var(--componentMarginModule) 0;
 
         width: 100%;
         height: var(--contactForm-Height);
         display: flex;
         flex-direction: column;
-        place-content: stretch;
+        place-content: space-between;
         place-items: stretch center;
 }
 
@@ -458,6 +463,7 @@ article.card--imageButton:nth-of-type(3) {
 .contactCard__subtitle {
         color: var(--textColor);
         font-size: var(--bigParagraphFontSize);
+        text-align: center;
 }
 
 .contactCard__emailWrapper {
@@ -522,11 +528,12 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 .footer {
-        --footerHeight: 45vh;
+        --footerHeight: 47vh;
         --footerSideMargin: 5px;
 
         height: var(--footerHeight);
         width: 100%;
+        padding-bottom: 10px;
 
         overflow:hidden;
         display: grid;
@@ -537,7 +544,7 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 .footer--themeDark {
-        background-color: var(--basePassiveColor);
+        background-color: var(--headFootPassiveColor);
         font-family: sans-serif;
         color: var(--textColor);
         font-size: var(--baseParagraphFontSize);
@@ -638,7 +645,7 @@ article.card--imageButton:nth-of-type(3) {
 
 .footer__copyright {
         height: fit-content;
-        place-self: center;
+        place-self: end center;
         font-size: var(--baseParagraphFontSize);
 }
 
@@ -692,6 +699,14 @@ article.card--imageButton:nth-of-type(3) {
         .card__video {
                 max-width: 75%;
         }
+
+        
+        .contactCard {
+                --contactForm-Height: 60vw;
+
+                padding: 2vmax;
+        }
+ 
 
         @media (min-width: 700px) {
                 .page {
