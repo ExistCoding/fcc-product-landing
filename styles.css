@@ -45,6 +45,7 @@ script {
         --componentMarginSection: 20vh;
         
         scroll-behavior: smooth;
+
 }
 
 .svg-def {
@@ -533,7 +534,7 @@ article.card--imageButton:nth-of-type(3) {
 
         height: var(--footerHeight);
         width: 100%;
-        padding-bottom: 10px;
+        padding-bottom: 25px;
 
         overflow:hidden;
         display: grid;
@@ -613,7 +614,6 @@ article.card--imageButton:nth-of-type(3) {
 .footer__infoSlider {
         grid-column: -1/1;
         width: 400%;
-        padding-bottom: 10px;
 
         display: grid;
         grid-template-columns: repeat(4, 25%);
