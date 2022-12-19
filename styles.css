@@ -350,7 +350,7 @@ div.media--title:nth-of-type(3) {
 
 .card__video {
         margin: 0 10px;
-        max-width: 60%;
+        max-width: 100%;
 }
 
 .card__description {
@@ -681,6 +681,10 @@ article.card--imageButton:nth-of-type(3) {
 
         .media--title {
                 width: 75%
+        }
+
+        .card__video {
+                max-width: 75%;
         }
 
         @media (min-width: 700px) {
