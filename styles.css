@@ -606,6 +606,8 @@ article.card--imageButton:nth-of-type(3) {
 .footer__infoSlider {
         grid-column: -1/1;
         width: 400%;
+        padding-bottom: 10px;
+
         display: grid;
         grid-template-columns: repeat(4, 25%);
         grid-auto-flow: column;
