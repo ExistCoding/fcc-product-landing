@@ -54,8 +54,8 @@ script {
 
 .page {
 
-        --pageHeaderHeight: 13vmax;
-        --pageFooterHeight: 18vmax;
+        --pageHeaderHeight: 13vh;
+        --pageFooterHeight: 18vh;
         --pageSideMargin: 5px;
 
         width: 100%;
@@ -93,9 +93,9 @@ script {
 
 .header--fixed {
 
-        --headerHeight: calc(13vmax - 10px);
-        --headerCornerBlockWidth: calc(13vmax - 10px);
-        --headerIconPadding: 1vmax;
+        --headerHeight: calc(13vh - 10px);
+        --headerCornerBlockWidth: calc(13vh - 10px);
+        --headerIconPadding: 1vh;
 
 
         width: 100%;
@@ -115,8 +115,8 @@ script {
 
 
 .header__icon {
-        height: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
-        width: calc(var(--headerCornerBlockWidth) - var(--headerIconPadding));
+        height: 100%;
+        width: 100%;
         padding: var(--headerIconPadding);
         fill: var(--darkAccentColor);
 }
@@ -147,9 +147,9 @@ script {
 
 .slidebar--extendable-right {
 
-        --slidebarWidth: calc(13vmax - 14px);
-        --slidebarHeight: calc(13vmax - 14px);
-        --slidebarIconPadding: 1vmax;
+        --slidebarWidth: calc(13vh - 14px);
+        --slidebarHeight: calc(13vh - 14px);
+        --slidebarIconPadding: 1vh;
         --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
 
         height: var(--slidebarHeight);
@@ -322,7 +322,7 @@ div.media--title:nth-of-type(3) {
 }
 
 .card--video {
-        --cardHeight: 70vmax;
+        --cardHeight: 70vh;
 
         padding: 10px;
         margin: 0 6% var(--componentMarginSection) 6%;
@@ -350,11 +350,12 @@ div.media--title:nth-of-type(3) {
 
 .card__video {
         margin: 0 10px;
-        max-width: 100%;
+        max-width: 60%;
 }
 
 .card__description {
-        font-size: var(--smallTitleFontSize)
+        font-size: var(--smallTitleFontSize);
+        text-align: center;
 }
 
 
@@ -364,7 +365,7 @@ div.media--title:nth-of-type(3) {
         HAS TO BE CERTAIN VALUE IT HAS TO BE DESIGNED THROUGH DEFINING ALL CHILDREN */
 
 .card--imageButton {
-        --cardHeight: 100vmax;
+        --cardHeight: 100vh;
 
         padding: 10px;
         margin: 0 6% var(--componentMarginModule) 6%;
@@ -422,7 +423,7 @@ article.card--imageButton:nth-of-type(3) {
 
 
 .contactCard {
-       --contactForm-Height: 80vmax;
+       --contactForm-Height: 80vh;
 
 
         padding: 20px 15px;
@@ -521,7 +522,7 @@ article.card--imageButton:nth-of-type(3) {
 }
 
 .footer {
-        --footerHeight: 18vmax;
+        --footerHeight: 45vh;
         --footerSideMargin: 5px;
 
         height: var(--footerHeight);
@@ -570,14 +571,14 @@ article.card--imageButton:nth-of-type(3) {
 .footer__contactLink:checked ~ .footer__contactLabel,
         .footer__privacyLink:checked ~ .footer__privacyLabel,
         .footer__termsLink:checked ~ .footer__termsLabel,
-        .footer__attributionsLink:checked ~ .footer__attributionsLabel {
+        .footer__attributionsSectionLink:checked ~ .footer__attributionsLabel {
         color: var(--darkActiveColor);
 }
 
 .footer__contactLink:checked:hover ~ .footer__contactLabel,
         .footer__privacyLink:checked:hover ~ .footer__privacyLabel,
         .footer__termsLink:checked:hover ~ .footer__termsLabel,
-        .footer__attributionsLink:checked:hover ~ .footer__attributionsLabel {
+        .footer__attributionsSectionLink:checked:hover ~ .footer__attributionsLabel {
         color: var(--lightActiveColor);
 }
 
@@ -586,7 +587,7 @@ article.card--imageButton:nth-of-type(3) {
         margin-left: 0;
 }
 
-.footer__attributionsLink:checked ~ .footer__infoSlider {
+.footer__attributionsSectionLink:checked ~ .footer__infoSlider {
         margin-left: -100%;
 }
 
@@ -606,39 +607,76 @@ article.card--imageButton:nth-of-type(3) {
         grid-column: -1/1;
         width: 400%;
         display: grid;
-        grid-template-columns: repeat(4, 100%);
+        grid-template-columns: repeat(4, 25%);
+        grid-auto-flow: column;
         transition: margin 0.6s ease-in-out;
+        place-items: stretch;
+
+        font-size: var(--baseParagraphFontSize);
+
 }
 
 .footer__contact {
-        width: 25%;
+        height: 100%;
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-rows: 65% 35%;
+        place-items: end center;
 }
 
 .footer__addresse {
-        grid-column: 2/-1;
-        grid-row: 2/-1;
-        place-self: end end;
-        text-align: left;
-        padding: 0 2vh 2vh 0;
+        height: fit-content;
+        place-self: center;
 }
 
 .footer__addresse__paragraph {
-        text-align:  right;
+        height: fit-content;
+        text-align:  center;
+        font-size: var(--baseParagraphFontSize);
 }
 
 .footer__copyright {
-        place-self: end start;
-        padding: 0 0 2vh 2vh;
+        height: fit-content;
+        place-self: center;
+        font-size: var(--baseParagraphFontSize);
 }
+
+.footer__attributionSection {
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        place-content: space-around;
+        place-items: center start;
+}
+
+.footer__attributionLink {
+        color: var(--darkAccentColor);
+}
+
+.footer__attributionLink:hover {
+        color: var(--lightAccentColor);
+        cursor: pointer;
+}
+
+.footer__attributionLink:active {
+        color: var(--darkAccentColor);
+        cursor: pointer;
+}
+
+.footer__privacySection {
+        padding: 0 10px;
+}
+
+.footer__termsSection {
+        padding: 0 10px;
+}
+
 
 @media (orientation: landscape){
         .page--theme-dark {
-        background-image: url(https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/master/Ressources/BackgroundLandscape.jpg);
+        background-image: url(Ressources/BackgroundLandscape.jpg);
+        background-blend-mode: normal;
         }
         .page {
-                --pageSideMargin: 8vw;
+                --pageSideMargin: 12vw;
         }
 
         .media--title {
@@ -646,6 +684,10 @@ article.card--imageButton:nth-of-type(3) {
         }
 
         @media (min-width: 700px) {
+                .page {
+                        --pageSideMargin: 16vw;
+                }
+
                 .header--fixed {
                         --headerHeight: 100px;
                         --headerCornerBlockWidth: 100px;
