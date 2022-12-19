@@ -54,7 +54,7 @@ script {
 
 .page {
 
-        --pageHeaderHeight: 13vh;
+        --pageHeaderHeight: 13vmax;
         --pageFooterHeight: 18vh;
         --pageSideMargin: 5px;
 
