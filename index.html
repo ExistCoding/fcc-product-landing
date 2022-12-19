@@ -112,18 +112,33 @@
                 </form>
             </div>
         </main>
-        <footer class="footer footer--themeDark">
-            <div class="footer__linkContainer" id="footer">
-                <a class="footer__link" href="#footer">Privacy</a>
-                <a class="footer__link" href="#footer">Terms</a>
-                <a class="footer__link" href="attributions.txt">Attributions</a>
+        <footer class="footer footer--themeDark" id="footer">
+            <input class="footer__contactLink footer__link"  type="radio" id="contact" name="footer__menu" checked/>
+            <label class="footer__contactLabel footer__label" for="contact">
+                Contact
+            </label>
+            <input class="footer__attributionsLink footer__link"  type="radio" id="attributions" name="footer__menu"/>
+            <label class="footer__attributionsLabel footer__label" for="attributions">
+                Attributions
+            </label>
+            <input class="footer__privacyLink footer__link"  type="radio" id="privacy" name="footer__menu"/>
+            <label class="footer__privacyLabel footer__label" for="privacy">
+                Privacy
+            </label>
+            <input class="footer__termsLink footer__link"  type="radio" id="terms" name="footer__menu"/>
+            <label class="footer__termsLabel footer__label" for="terms">
+                Terms
+            </label>
+            <div class="footer__infoSlider">
+                <div class="footer__contact">
+                    <addresse class="footer__addresse">
+                        <a class="footer__addresse__paragraph">VulcanusForge@dummymail.me</a> <br>
+                        <p class="footer__addresse__paragraph">Vulcanstreet 42</p>
+                        <p class="footer__addresse__paragraph">Etna, Italy</p>
+                    </addresse>
+                    <span class="footer__copyright">Copyright 2001, Vulcanus Forge</span>
+                </div>
             </div>
-            <addresse class="footer__addresse">
-                <a class="footer__addresse__paragraph">VulcanusForge@dummymail.me</a> <br>
-                <p class="footer__addresse__paragraph">Vulcanstreet 42</p>
-                <p class="footer__addresse__paragraph">Etna, Italy</p>
-            </addresse>
-            <span class="footer__copyright">Copyright 2001, Vulcanus Forge</span>
         </footer>
     </body>
         <!--Inline SVGs-->

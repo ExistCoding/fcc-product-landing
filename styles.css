@@ -16,7 +16,8 @@ script {
         --lightPassiveColor: hsl(0, 0%, 20%);
         --darkPassiveColor: hsl(0, 0%, 10%);
 
-        --activeColor: hsl(0, 92%, 45%);
+        --darkActiveColor: hsl(0, 92%, 40%);
+        --lightActiveColor: hsl(0, 92%, 50%);
 
         --lightAccentColor: hsl(18, 98%, 50%);
         --darkAccentColor: hsl(18, 98%, 40%);
@@ -24,9 +25,9 @@ script {
 
         --textColor: linen;
 
-        --baseParagraphFontSize: 0.6rem;
-        --smallParagraphFontSize: 0.5rem;
-        --bigParagraphFontSize: 0.7rem;
+        --baseParagraphFontSize: calc(0.3rem + 0.6vmax);
+        --smallParagraphFontSize: calc(0.25rem + 0.5vmax);
+        --bigParagraphFontSize: calc(0.4rem + 0.8vmax);
 
         --paragraphFont: "Bree Serif";
         --paragraphFontFamily: serif;
@@ -34,9 +35,9 @@ script {
         --TitleFont: "Rubik";
         --TitleFontFamily: sans-serif;
 
-        --baseTitleFontSize: 1.2rem;
-        --smallTitleFontSize: 1rem;
-        --bigTitleFontSize: 1.5rem;
+        --baseTitleFontSize: calc(0.6rem + 1.2vmax);/* 1.2rem*/
+        --smallTitleFontSize: calc(0.5rem + 1vmax);/*; 1rem*/
+        --bigTitleFontSize: calc(0.75rem + 1.5vmax); /*1.5rem*/
 
         --componentMarginModule: 10vh;
         --componentMarginSection: 20vh;
@@ -421,7 +422,7 @@ article.card--imageButton:nth-of-type(3) {
 
 
 .contactCard {
-       --contactForm-Height: 80vh;
+       --contactForm-Height: 80vmax;
 
 
         padding: 20px 15px;
@@ -448,7 +449,7 @@ article.card--imageButton:nth-of-type(3) {
 .contactCard__title {
         color: var(--lightAccentColor);
         font-size: var(--smallTitleFontSize);
-        padding-bottom: var(--smallParagraphFontSize);
+        padding-bottom: var(--baseParagraphFontSize);
 
         text-align: center;
 }
@@ -502,7 +503,7 @@ article.card--imageButton:nth-of-type(3) {
 .contactCard__button {
         background-color: var(--lightPassiveColor);
         color: var(--lightAccentColor);
-        height: 5rem;
+        height: calc(var(--smallTitleFontSize) * 2.5);
         font-size: var(--smallTitleFontSize);
         font-family: var(--paragraphFont), var(--paragraphFontFamily);
 
@@ -524,10 +525,12 @@ article.card--imageButton:nth-of-type(3) {
         --footerSideMargin: 5px;
 
         height: var(--footerHeight);
-        width: auto;
+        width: 100%;
+
+        overflow:hidden;
         display: grid;
-        grid-template-rows: 50% 50%;
-        grid-template-columns: 70% 30%;
+        grid-template-rows: 40% 60%;
+        grid-template-columns: repeat(4, 25%);
         grid-auto-flow: row;
 
 }
@@ -536,8 +539,81 @@ article.card--imageButton:nth-of-type(3) {
         background-color: var(--basePassiveColor);
         font-family: sans-serif;
         color: var(--textColor);
-        font-size: var(--smallParagraphFontSize);
+        font-size: var(--baseParagraphFontSize);
         border-radius: 10px 10px 0px 0px;
+}
+
+.footer__label {
+        font-size: var(--bigParagraphFontSize);
+        color: var(--darkAccentColor);
+        margin: 0 5vmin;
+        text-decoration: underline;
+
+        place-self: center;
+}
+
+.footer__link {
+        appearance: none;
+        display: none;
+}
+
+.footer__label:hover {
+        color: var(--lightAccentColor);
+        cursor: pointer;
+}
+
+.footer__label:active {
+        color: var(--darkAccentColor);
+        cursor: pointer;
+}
+
+.footer__contactLink:checked ~ .footer__contactLabel,
+        .footer__privacyLink:checked ~ .footer__privacyLabel,
+        .footer__termsLink:checked ~ .footer__termsLabel,
+        .footer__attributionsLink:checked ~ .footer__attributionsLabel {
+        color: var(--darkActiveColor);
+}
+
+.footer__contactLink:checked:hover ~ .footer__contactLabel,
+        .footer__privacyLink:checked:hover ~ .footer__privacyLabel,
+        .footer__termsLink:checked:hover ~ .footer__termsLabel,
+        .footer__attributionsLink:checked:hover ~ .footer__attributionsLabel {
+        color: var(--lightActiveColor);
+}
+
+
+.footer__contactLink:checked ~ .footer__infoSlider {
+        margin-left: 0;
+}
+
+.footer__attributionsLink:checked ~ .footer__infoSlider {
+        margin-left: -100%;
+}
+
+.footer__privacyLink:checked ~ .footer__infoSlider {
+        margin-left: -200%;
+}
+
+.footer__termsLink:checked ~ .footer__infoSlider {
+        margin-left: -300%;
+}
+
+
+
+
+
+.footer__infoSlider {
+        grid-column: -1/1;
+        width: 400%;
+        display: grid;
+        grid-template-columns: repeat(4, 100%);
+        transition: margin 0.6s ease-in-out;
+}
+
+.footer__contact {
+        width: 25%;
+        display: grid;
+        grid-template-columns: 50% 50%;
 }
 
 .footer__addresse {
@@ -552,25 +628,6 @@ article.card--imageButton:nth-of-type(3) {
         text-align:  right;
 }
 
-.footer__linkContainer {
-        grid-column: 1/-1;
-        place-self: center;
-}
-
-.footer__link {
-        font-size: var(--bigParagraphFontSize);
-        color: var(--darkAccentColor);
-        margin: 0 5vmin;
-}
-
-.footer__link:hover {
-        color: var(--lightAccentColor);
-}
-
-.footer__link:active {
-        color: var(--darkAccentColor);
-}
-
 .footer__copyright {
         place-self: end start;
         padding: 0 0 2vh 2vh;
@@ -578,7 +635,7 @@ article.card--imageButton:nth-of-type(3) {
 
 @media (orientation: landscape){
         .page--theme-dark {
-        background-image: url(https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/master/Ressources/forgegrind.jpg);
+        background-image: url(https://raw.githubusercontent.com/ExistCoding/fcc-product-landing/master/Ressources/BackgroundLandscape.jpg);
         }
         .page {
                 --pageSideMargin: 8vw;
@@ -606,7 +663,7 @@ article.card--imageButton:nth-of-type(3) {
                 }
 
                 .footer {
-                        --footerHeight: 100px;
+                        --footerHeight: 170px;
                         --footerSideMargin: 10px;
                 }
         }
