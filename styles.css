@@ -93,9 +93,9 @@ script {
 
 .header--fixed {
 
-        --headerHeight: calc(13vh - 10px);
-        --headerCornerBlockWidth: calc(13vh - 10px);
-        --headerIconPadding: 1vh;
+        --headerHeight: calc(13vmax - 10px);
+        --headerCornerBlockWidth: calc(13vmax - 10px);
+        --headerIconPadding: 1vmax;
 
 
         width: 100%;
@@ -147,9 +147,9 @@ script {
 
 .slidebar--extendable-right {
 
-        --slidebarWidth: calc(13vh - 14px);
-        --slidebarHeight: calc(13vh - 14px);
-        --slidebarIconPadding: 1vh;
+        --slidebarWidth: calc(13vmax - 14px);
+        --slidebarHeight: calc(13vmax - 14px);
+        --slidebarIconPadding: 1vmax;
         --slidebarListWidth: calc(99vw - calc(var(--slidebarWidth) * 2));
 
         height: var(--slidebarHeight);
@@ -423,7 +423,7 @@ article.card--imageButton:nth-of-type(3) {
 
 
 .contactCard {
-       --contactForm-Height: 80vh;
+       --contactForm-Height: 80vmax;
 
 
         padding: 20px 15px;
@@ -681,6 +681,10 @@ article.card--imageButton:nth-of-type(3) {
 
         .media--title {
                 width: 75%
+        }
+
+        .card--video {
+                --cardHeight: 55vw;
         }
 
         .card__video {
